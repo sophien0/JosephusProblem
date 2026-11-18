@@ -8,8 +8,17 @@ public class JosephusSim {
 
    public JosephusSim(String fileName) {
       try {
+         size = 0;
+         front = null;
          // load names from the file in order, generating a singly linked list of PersonNodes
-         Scanner file = new Scanner(new File(fileName));
+         Scanner input = new Scanner(new File(fileName));
+         while(input.hasNextLine()){
+            String name = input.nextLine();
+            PersonNode person = new PersonNode(name, front);
+            front = person;
+            size++;
+         }
+        
          
          // make the ring circular by attaching last node's next to front
          
