@@ -4,7 +4,8 @@ import java.io.*;
 public class JosephusSim {
    private PersonNode front;      // a PersonNode pointer that tracks first node in the list
    private int size;              // the number of people in the circle
-   private int eliminationCount;  // the number to count to for elimination       
+   private int eliminationCount;  // the number to count to for elimination 
+   private PersonNode last;      
 
    public JosephusSim(String fileName) {
       try {
@@ -17,11 +18,15 @@ public class JosephusSim {
             PersonNode person = new PersonNode(name, front);
             front = person;
             size++;
+            
+            if(size == 1){
+               last = front;
+            }
          }
         
          
          // make the ring circular by attaching last node's next to front
-         
+         last.next = front;
          // generate, print, and save the random elimination count
 
       } catch (FileNotFoundException e) {
@@ -48,7 +53,7 @@ public class JosephusSim {
    }
    
    public String toString() {
-      String name = "";// if there's only one person left, print them as the last survivor
+      String name = "";
       if(front.next == null){
          name += front.name;
       } else{
