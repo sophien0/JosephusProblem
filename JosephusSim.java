@@ -28,6 +28,9 @@ public class JosephusSim {
          // make the ring circular by attaching last node's next to front
          last.next = front;
          // generate, print, and save the random elimination count
+         Random rand = new Random();
+         eliminationCount = rand.nextInt(size/2) + 1;
+         System.out.println("The elimination count is " + eliminationCount);
 
       } catch (FileNotFoundException e) {
          System.out.println("Something went wrong with " + fileName);
