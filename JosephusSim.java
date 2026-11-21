@@ -54,9 +54,9 @@ public class JosephusSim {
          previous = current; //move one forward
          current = current.next;
       }
-        
-
-      }
+      // print who will be eliminated
+      System.out.println(current.name);
+   }
    
    public boolean isOver() {
       // check if there's only one person left in the circle
