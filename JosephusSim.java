@@ -42,13 +42,14 @@ public class JosephusSim {
    }
    
    public void eliminate() {
-      // count to the elimination count
       
-      // print who will be eliminated
+      int count = 0;
+      //the head pointer(front) is point at the current node
+      PersonNode current = front;
+      //in a circle, the node before front is last
+      personNode previous = last;
       
-      // eliminate the person and update "front" of the circle and size
-
-   }
+      }
    
    public boolean isOver() {
       // check if there's only one person left in the circle
