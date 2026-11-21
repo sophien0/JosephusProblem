@@ -56,6 +56,16 @@ public class JosephusSim {
       }
       // print who will be eliminated
       System.out.println(current.name);
+      
+      // eliminate the person
+      previous.next = current.next; //eliminate "current"
+      //if the eliminated node was the first node (front
+            if(current == front) {
+         front = current.next; //move front to the ext node
+
+      }
+      //update "front" of the circle and size
+      size--;
    }
    
    public boolean isOver() {
