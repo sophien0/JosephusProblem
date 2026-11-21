@@ -49,6 +49,13 @@ public class JosephusSim {
       //in a circle, the node before front is last
       personNode previous = last;
       
+      // count to the elimination count
+      for(int i = 1; i < eliminationCount; i++){
+         previous = current; //move one forward
+         current = current.next;
+      }
+        
+
       }
    
    public boolean isOver() {
