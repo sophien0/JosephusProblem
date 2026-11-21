@@ -43,11 +43,10 @@ public class JosephusSim {
    
    public void eliminate() {
       
-      int count = 0;
       //the head pointer(front) is point at the current node
       PersonNode current = front;
       //in a circle, the node before front is last
-      personNode previous = last;
+      PersonNode previous = last;
       
       // count to the elimination count
       for(int i = 1; i < eliminationCount; i++){
@@ -60,9 +59,12 @@ public class JosephusSim {
       // eliminate the person
       previous.next = current.next; //eliminate "current"
       //if the eliminated node was the first node (front
-            if(current == front) {
-         front = current.next; //move front to the ext node
-
+      if(current == front) {
+         front = current.next; //move front to the next node
+      }
+      //if the eliminated node was the last node
+      if (current == last) {
+         last = previous; //move last to the previous node
       }
       //update "front" of the circle and size
       size--;
@@ -71,23 +73,22 @@ public class JosephusSim {
    public boolean isOver() {
       // check if there's only one person left in the circle
       if(size == 1){
-         return ture;
+         return true;
       }else{
          return false;
       }
    }
    public String toString() {
       String name = "";
-      if(front.next == null){
-         name += front.name;
-      } else{
-         PersonNode current = front;
+      PersonNode current = front;
+      
          for(int i = 0; i < size; i++){
             name += current.name + " ";
             current = current.next;
          }
+         
+         return name;
       }
-      return name;
-   }
+   
 
 }
